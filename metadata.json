@@ -1,0 +1,6 @@
+{
+  "name": "Naitik Agarwal Portfolio",
+  "description": "An immersive, cinema-inspired portfolio website for Naitik Agarwal featuring 3D particle systems, scrolling animations, real-time audio synthesized soundscapes, and proof of work.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
