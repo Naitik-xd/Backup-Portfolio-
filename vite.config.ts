@@ -12,25 +12,41 @@ export default defineConfig(() => {
         name: 'netlify-functions-mock',
         configureServer(server) {
           server.middlewares.use(async (req, res, next) => {
-            if (req.url?.startsWith('/.netlify/functions/ask-naitik')) {
+            if (req.url?.startsWith('/api/ask-naitik')) {
               try {
                 let body = '';
                 req.on('data', chunk => body += chunk.toString());
                 req.on('end', async () => {
                   try {
                     // load dynamic import without caching if possible, but fine to just import since type="module"
-                    const func = await import(path.resolve(import.meta.dirname, 'netlify/functions/ask-naitik.js') + '?t=' + Date.now());
-                    const event = {
-                      httpMethod: req.method,
+                    const func = await import(path.resolve(import.meta.dirname, 'api/ask-naitik.js') + '?t=' + Date.now());
+                    
+                    // Mock Vercel req/res objects
+                    const mockReq = {
+                      method: req.method,
                       headers: req.headers,
                       body: body || '{}',
                     };
-                    const result = await func.handler(event, {});
-                    res.statusCode = result.statusCode || 200;
-                    for (const [k, v] of Object.entries(result.headers || {})) {
-                      res.setHeader(k, v);
-                    }
-                    res.end(result.body);
+                    
+                    let statusCode = 200;
+                    const headers = {};
+                    let responseBody = '';
+                    
+                    const mockRes = {
+                      setHeader(k, v) { headers[k] = v; return this; },
+                      status(code) { statusCode = code; return this; },
+                      json(data) { responseBody = JSON.stringify(data); this.end(); return this; },
+                      end(data) { 
+                        if (data) responseBody = data; 
+                        res.statusCode = statusCode;
+                        for (const [k, v] of Object.entries(headers)) {
+                          res.setHeader(k, v);
+                        }
+                        res.end(responseBody);
+                      }
+                    };
+                    
+                    await func.default(mockReq, mockRes);
                   } catch (e) {
                     res.statusCode = 500;
                     res.end(JSON.stringify({ error: String(e) }));
@@ -46,24 +62,39 @@ export default defineConfig(() => {
         },
         configurePreviewServer(server) {
           server.middlewares.use(async (req, res, next) => {
-            if (req.url?.startsWith('/.netlify/functions/ask-naitik')) {
+            if (req.url?.startsWith('/api/ask-naitik')) {
               try {
                 let body = '';
                 req.on('data', chunk => body += chunk.toString());
                 req.on('end', async () => {
                   try {
-                    const func = await import(path.resolve(import.meta.dirname, 'netlify/functions/ask-naitik.js') + '?t=' + Date.now());
-                    const event = {
-                      httpMethod: req.method,
+                    const func = await import(path.resolve(import.meta.dirname, 'api/ask-naitik.js') + '?t=' + Date.now());
+                    
+                    const mockReq = {
+                      method: req.method,
                       headers: req.headers,
                       body: body || '{}',
                     };
-                    const result = await func.handler(event, {});
-                    res.statusCode = result.statusCode || 200;
-                    for (const [k, v] of Object.entries(result.headers || {})) {
-                      res.setHeader(k, v);
-                    }
-                    res.end(result.body);
+                    
+                    let statusCode = 200;
+                    const headers = {};
+                    let responseBody = '';
+                    
+                    const mockRes = {
+                      setHeader(k, v) { headers[k] = v; return this; },
+                      status(code) { statusCode = code; return this; },
+                      json(data) { responseBody = JSON.stringify(data); this.end(); return this; },
+                      end(data) { 
+                        if (data) responseBody = data; 
+                        res.statusCode = statusCode;
+                        for (const [k, v] of Object.entries(headers)) {
+                          res.setHeader(k, v);
+                        }
+                        res.end(responseBody);
+                      }
+                    };
+                    
+                    await func.default(mockReq, mockRes);
                   } catch (e) {
                     res.statusCode = 500;
                     res.end(JSON.stringify({ error: String(e) }));

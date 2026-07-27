@@ -1,29 +1,20 @@
-export async function handler(event, context) {
-  const headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Content-Type": "application/json"
-  };
+export default async function handler(req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
 
-  if (event.httpMethod === "OPTIONS") {
-    return {
-      statusCode: 200,
-      headers,
-      body: ""
-    };
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
   }
 
-  if (event.httpMethod !== "POST") {
-    return {
-      statusCode: 405,
-      headers,
-      body: JSON.stringify({ error: "Method Not Allowed" })
-    };
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method Not Allowed" });
   }
 
   try {
-    const { message, history } = JSON.parse(event.body);
+    // Vercel parses JSON bodies automatically if Content-Type is application/json
+    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+    const { message, history } = body;
 
     const systemPrompt = `You are NA Assistant on Naitik Agarwal portfolio. Be casual and helpful.
 Naitik is an AI Explorer, Prompt Engineer, Vibe Coder and Creator.
@@ -39,11 +30,7 @@ Rules: Keep answers concise. Use bullet points for lists instead of a single bor
 
     const apiKey = process.env.GAPI_KEY || process.env.GEMINI_API_KEY;
     if (!apiKey) {
-      return {
-        statusCode: 500,
-        headers,
-        body: JSON.stringify({ error: "GAPI_KEY is not configured" })
-      };
+      return res.status(500).json({ error: "GAPI_KEY is not configured" });
     }
 
     const modelsToTry = [
@@ -118,11 +105,7 @@ Rules: Keep answers concise. Use bullet points for lists instead of a single bor
 
     if (!response || !response.ok) {
       // If all models hit quota or fail, return the error so the user can debug their API key
-      return {
-        statusCode: 200,
-        headers,
-        body: JSON.stringify({ reply: `Error: ${lastError}` })
-      };
+      return res.status(200).json({ reply: `Error: ${lastError}` });
     }
 
     let reply = "I couldn't process that request at this time.";
@@ -130,17 +113,9 @@ Rules: Keep answers concise. Use bullet points for lists instead of a single bor
       reply = data.candidates[0].content.parts[0].text;
     }
 
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ reply })
-    };
+    return res.status(200).json({ reply });
   } catch (error) {
     console.error("Function error:", error);
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ error: "Internal Server Error" })
-    };
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 }

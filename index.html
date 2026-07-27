@@ -2768,7 +2768,7 @@
         msgContainer.scrollTop = msgContainer.scrollHeight;
 
         try {
-          const res = await fetch('/.netlify/functions/ask-naitik', {
+          const res = await fetch('/api/ask-naitik', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -2805,5 +2805,6 @@
         }
       }
     </script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
