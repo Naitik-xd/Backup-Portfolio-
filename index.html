@@ -102,6 +102,24 @@
       body.light-mode .text-white\/75 {
         color: rgba(15, 23, 42, 0.75) !important;
       }
+      body.light-mode .text-white\/90 {
+        color: rgba(15, 23, 42, 0.9) !important;
+      }
+      body.light-mode .text-white\/50 {
+        color: rgba(15, 23, 42, 0.5) !important;
+      }
+      body.light-mode .text-white\/30 {
+        color: rgba(15, 23, 42, 0.3) !important;
+      }
+      body.light-mode .text-white\/70 {
+        color: rgba(15, 23, 42, 0.7) !important;
+      }
+      body.light-mode .text-white\/80 {
+        color: rgba(15, 23, 42, 0.8) !important;
+      }
+      body.light-mode .group-hover\:text-white\/80:hover {
+        color: rgba(15, 23, 42, 0.8) !important;
+      }
       body.light-mode .hover\:text-white:hover {
         color: var(--primary-dim) !important;
       }
@@ -441,7 +459,7 @@
         border-top: 1px solid rgba(255,255,255,0.03);
         border-bottom: 1px solid rgba(255,255,255,0.03);
         padding: 0.85rem 0;
-        opacity: 0.12;
+        opacity: 0.4;
         user-select: none;
         pointer-events: none;
       }
@@ -548,11 +566,11 @@
           </div>
 
           <!-- Glowing Explore Button -->
-          <a href="#about" class="magnetic-btn relative z-[2] flex items-center gap-3 bg-gradient-to-r from-primaryDim to-primaryBlue hover:from-primaryBlue hover:to-primaryBlue border border-outline rounded-full px-8 py-4 font-space text-xs uppercase tracking-widest text-black font-extrabold cursor-pointer hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(74,158,255,0.4)] transition-all duration-300" style="position: relative; z-index: 2;">
+          <a href="#about" class="magnetic-btn relative z-[2] flex items-center gap-3 bg-gradient-to-r from-[#1a6fd4] to-[#4a9eff] hover:from-[#4a9eff] hover:to-[#4a9eff] border border-outline rounded-full px-8 py-4 font-space text-xs uppercase tracking-widest text-white font-extrabold cursor-pointer hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(74,158,255,0.4)] transition-all duration-300" style="position: relative; z-index: 2;">
             <!-- Glow highlight anchor -->
             <div class="btn-glow-highlight absolute inset-0 pointer-events-none rounded-full bg-[radial-gradient(circle_at_var(--x)_var(--y),rgba(255,255,255,0.45)_0%,transparent_50%)] opacity-0 transition-opacity duration-300"></div>
             <span>Explore My World</span>
-            <i data-lucide="arrow-down-right" class="w-4 h-4 text-black stroke-[2.5]"></i>
+            <i data-lucide="arrow-down-right" class="w-4 h-4 text-white stroke-[2.5]"></i>
           </a>
         </div>
 
@@ -941,22 +959,54 @@
         <div class="marquee-content-right text-[11px] font-space tracking-[0.25em] text-white uppercase" id="marquee-proto-7"></div>
       </div>
 
-      <!-- 8. FUTURE SECTION -->
-      <section id="future" data-title="Goal" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-transparent overflow-hidden">
-        <div class="max-w-5xl mx-auto w-full relative z-10 flex flex-col items-center gap-8 md:gap-11 text-center">
+      <!-- 8. PROJECTS SECTION -->
+      <section id="projects" data-title="Projects" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-transparent overflow-hidden">
+        <div class="max-w-6xl mx-auto w-full relative z-10 flex flex-col gap-12">
           
-          <div>
-            <span class="text-tealAccent font-space text-xs tracking-[0.3em] uppercase block font-semibold mb-3">WHAT DRIVES ME</span>
-            <h2 class="split-heading font-sora font-extrabold text-3xl md:text-5xl text-white">The Goal.</h2>
+          <div class="text-center">
+            <span class="text-tealAccent font-space text-xs tracking-[0.3em] uppercase block font-semibold mb-3">LATEST WORK</span>
+            <h2 class="split-heading font-sora font-extrabold text-3xl md:text-5xl text-white">My Projects</h2>
+            <p class="text-textDim font-space text-sm mt-4">Note: Some backend functions might be disabled to save resources, but ~80% of the features are fully functional.</p>
           </div>
 
-          <!-- Spring overshoot styled quote splits -->
-          <div class="max-w-4xl mx-auto py-4">
-            <h3 class="split-quote font-sora italic text-white leading-relaxed text-2xl md:text-4xl text-center font-medium md:font-semibold">
-              To achieve big and do something meaningful with AI. Not just use it — shape it. Every tool I learn every badge I earn every hackathon I enter is one step closer. The future belongs to those who stay curious.
-            </h3>
-          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+            <!-- Project 1 -->
+            <div class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col gap-6 hover:border-primaryBlue/30 transition-all duration-300">
+              <div>
+                <h3 class="font-sora font-bold text-2xl text-white mb-4">Lumine-bay</h3>
+                <p class="font-geist text-textDim text-sm md:text-base leading-relaxed">
+                  A full-stack AI-powered salon booking platform built during a hackathon. It allows users to book appointments and consult with an AI stylist for an upgraded experience. Features a dedicated admin panel for salon owners to effortlessly handle bookings.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-surface border border-outline rounded-full text-xs font-space text-white/70">Full Stack</span>
+                  <span class="px-3 py-1 bg-surface border border-outline rounded-full text-xs font-space text-white/70">AI Integration</span>
+                  <span class="px-3 py-1 bg-surface border border-outline rounded-full text-xs font-space text-white/70">Hackathon</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 mt-auto pt-4 border-t border-outline/50">
+                 <a href="https://luminae-bay.vercel.app/" target="_blank" class="text-xs font-space tracking-widest uppercase text-white hover:text-primaryBlue transition-colors flex items-center gap-2"><span>View Demo</span><i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+              </div>
+            </div>
 
+            <!-- Project 2 -->
+            <div class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col gap-6 hover:border-gold/30 transition-all duration-300">
+              <div>
+                <h3 class="font-sora font-bold text-2xl text-white mb-4">Proof of Work</h3>
+                <p class="font-geist text-textDim text-sm md:text-base leading-relaxed">
+                  A SaaS platform designed for users to showcase their hackathon projects and participation certificates. Built to ensure that developers' hard work is recognized with solid proof, even if they don't win.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-surface border border-outline rounded-full text-xs font-space text-white/70">SaaS</span>
+                  <span class="px-3 py-1 bg-surface border border-outline rounded-full text-xs font-space text-white/70">Full Stack</span>
+                  <span class="px-3 py-1 bg-surface border border-outline rounded-full text-xs font-space text-white/70">Showcase</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 mt-auto pt-4 border-t border-outline/50">
+                 <a href="https://my-proof-of-work.vercel.app/" target="_blank" class="text-xs font-space tracking-widest uppercase text-white hover:text-gold transition-colors flex items-center gap-2"><span>View Demo</span><i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </section>
 

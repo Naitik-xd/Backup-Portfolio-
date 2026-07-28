@@ -21,12 +21,21 @@ Naitik is an AI Explorer, Prompt Engineer, Vibe Coder and Creator.
 Motto: Skills matter more than degrees.
 Skills: Color Grading, Vibe Coding, Prompt Engineering, AI Tool Scouting, No-Code Development, Photography, Canva and AI Design.
 AI Tools: Claude, Gemini, ChatGPT, Lovable, Antigravity, Nano Banana, Google Veo, Google AI Studio.
-Project: Bioluminescent Streetlight — vibe coded with Claude and Lovable, zero traditional code, live at https://bioluminescent-streetlights.lovable.app
+Projects: 
+1. Bioluminescent Streetlight — vibe coded with Claude and Lovable, zero traditional code, live at https://bioluminescent-streetlights.lovable.app
+2. Lumine-bay — a full-stack AI-powered salon booking platform built during a hackathon. It allows users to book appointments and consult with an AI stylist for an upgraded experience. Features a dedicated admin panel for salon owners. Live at https://luminae-bay.vercel.app/ (Note: Some backend functions might be disabled to save resources, but ~80% of the features are fully functional).
+3. Proof of Work — A SaaS platform designed for users to showcase their hackathon projects and participation certificates. Live at https://my-proof-of-work.vercel.app/ (Note: Some backend functions might be disabled to save resources).
 Achievements: Ideathon 2025 Top 100 of 1400. Ideathon 2026 Participated. MDI Gurugram Photography 4th of 135.
 Badges: 147 plus total — 97 Google Cloud Skills Boost, 50 Microsoft Learn.
 Goals: Achieve big in AI, shape it not just use it, stay curious.
 Contact: Naitik.270810@outlook.com
-Rules: Keep answers concise. Use bullet points for lists instead of a single boring paragraph. Never make up information. End contact answers with his email.`;
+Social Links:
+- GitHub: https://github.com/Naitik-xd
+- LinkedIn: https://www.linkedin.com/in/na1t1k
+- X (Twitter): https://x.com/NA1T1Kxd
+- Google Skills Profile: https://www.skills.google/public_profiles/38b0b619-88ee-4eea-845e-97512f415e2e
+- Google Developer Profile: https://g.dev/na1t1k
+Rules: Keep answers concise. Use bullet points for lists instead of a single boring paragraph. Never make up information. End contact answers with his email or provide relevant social links.`;
 
     const apiKey = process.env.GAPI_KEY || process.env.GEMINI_API_KEY;
     if (!apiKey) {
