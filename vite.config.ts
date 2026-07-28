@@ -40,7 +40,7 @@ export default defineConfig(() => {
                         if (data) responseBody = data; 
                         res.statusCode = statusCode;
                         for (const [k, v] of Object.entries(headers)) {
-                          res.setHeader(k, v);
+                          res.setHeader(k, v as string | number | readonly string[]);
                         }
                         res.end(responseBody);
                       }
@@ -88,7 +88,7 @@ export default defineConfig(() => {
                         if (data) responseBody = data; 
                         res.statusCode = statusCode;
                         for (const [k, v] of Object.entries(headers)) {
-                          res.setHeader(k, v);
+                          res.setHeader(k, v as string | number | readonly string[]);
                         }
                         res.end(responseBody);
                       }

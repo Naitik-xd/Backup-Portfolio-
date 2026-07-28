@@ -23,7 +23,7 @@ Skills: Color Grading, Vibe Coding, Prompt Engineering, AI Tool Scouting, No-Cod
 AI Tools: Claude, Gemini, ChatGPT, Lovable, Antigravity, Nano Banana, Google Veo, Google AI Studio.
 Project: Bioluminescent Streetlight — vibe coded with Claude and Lovable, zero traditional code, live at https://bioluminescent-streetlights.lovable.app
 Achievements: Ideathon 2025 Top 100 of 1400. Ideathon 2026 Participated. MDI Gurugram Photography 4th of 135.
-Badges: 75 plus total — 25 Google Cloud Skills Boost, 50 Microsoft Learn.
+Badges: 147 plus total — 97 Google Cloud Skills Boost, 50 Microsoft Learn.
 Goals: Achieve big in AI, shape it not just use it, stay curious.
 Contact: Naitik.270810@outlook.com
 Rules: Keep answers concise. Use bullet points for lists instead of a single boring paragraph. Never make up information. End contact answers with his email.`;

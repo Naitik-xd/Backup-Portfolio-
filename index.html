@@ -10,7 +10,6 @@
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Three.js CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <!-- Tailwind CSS CDN -->
@@ -108,12 +107,6 @@
       }
       body.light-mode .text-textDim {
         color: var(--text-dim) !important;
-      }
-      body.light-mode .bg-black {
-        background-color: var(--background) !important;
-      }
-      body.light-mode .bg-bgMedium {
-        background-color: #f1f5f9 !important;
       }
       body.light-mode .bg-surface\/30 {
         background-color: rgba(255, 255, 255, 0.6) !important;
@@ -492,9 +485,6 @@
         }
       })();
     </script>
-    <!-- Film Grain Layer -->
-    <canvas id="grain-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-[999] opacity-[0.05]"></canvas>
-
     <!-- Custom Cursor -->
     <div class="custom-cursor-dot hidden md:block fixed w-2.5 h-2.5 bg-white rounded-full pointer-events-none z-[10000] -translate-x-1/2 -translate-y-1/2 mix-blend-difference shadow-[0_0_10px_#ffffff]"></div>
     <div class="custom-cursor-ring hidden md:block fixed w-9 h-9 border border-white/60 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference" style="transition: transform 0.05s linear, border-color 0.2s, background-color 0.2s;"></div>
@@ -533,14 +523,13 @@
     <div id="progress-dots-container" class="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4 hidden md:flex"></div>
 
     <!-- MAIN PORTFOLIO SECTIONS LAYER -->
-    <main class="w-full">
+    <main class="relative w-full z-10">
+      <div id="canvas-root" class="fixed inset-0 z-0 pointer-events-none"></div>
       <!-- 1. HERO SECTION -->
-      <section id="hero" data-title="Hero" class="relative w-full bg-black flex flex-col justify-center items-center text-center px-4 overflow-hidden" style="padding-top: 120px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <!-- Particles.js wrapper -->
-        <div id="particles-js" class="absolute inset-0 w-full h-full pointer-events-none z-0" style="z-index: 0;"></div>
+      <section id="hero" data-title="Hero" class="relative w-full bg-transparent flex flex-col justify-center items-center text-center px-4 overflow-hidden" style="padding-top: 120px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
         
         <!-- 3D Three.js Particles Canvas -->
-        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0" style="z-index: 0;"></canvas>
+        
         
         <!-- Central Hero Content overlay -->
         <div class="relative z-[2] max-w-4xl flex flex-col items-center select-none" style="position: relative; z-index: 2;">
@@ -580,7 +569,7 @@
       </div>
 
       <!-- 2. ABOUT SECTION -->
-      <section id="about" data-title="About" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-bgMedium flex flex-col gap-12 overflow-hidden">
+      <section id="about" data-title="About" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-transparent flex flex-col gap-12 overflow-hidden">
         <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           <!-- Left Column: Vision Statement Text -->
@@ -598,7 +587,7 @@
             <!-- Stat Card 1 -->
             <div class="tilt-card relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col justify-between h-[180px] hover:-translate-y-2 transition-transform duration-300 group cursor-default">
               <div>
-                <span class="counter-num text-4xl md:text-5xl font-sora font-extrabold text-white leading-none block" data-target="60" data-format="plus">0+</span>
+                <span class="counter-num text-4xl md:text-5xl font-sora font-extrabold text-white leading-none block" data-target="147" data-format="plus">0+</span>
                 <span class="font-sora font-bold text-white text-base mt-2 block">Skill Badges</span>
               </div>
               <span class="font-space text-xs text-textDim tracking-wider">Google and Microsoft</span>
@@ -641,7 +630,7 @@
       </div>
 
       <!-- 3. SKILLS SECTION -->
-      <section id="skills" data-title="Skills" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-background overflow-hidden">
+      <section id="skills" data-title="Skills" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-transparent overflow-hidden">
         <!-- Giant Ghost Background Text -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
           <span class="font-sora font-black text-[12vw] tracking-widest uppercase ghost-outline">SKILLS</span>
@@ -672,61 +661,67 @@
       </div>
 
       <!-- 4. WORK SECTION -->
-      <section id="work" data-title="Work" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-bgMedium overflow-hidden">
+      <section id="work" data-title="Links" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-transparent overflow-hidden">
         <!-- Giant Ghost Background Text -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
-          <span class="font-sora font-black text-[14vw] tracking-widest uppercase ghost-outline">WORK</span>
+          <span class="font-sora font-black text-[14vw] tracking-widest uppercase ghost-outline">LINKS</span>
         </div>
-
+        
         <div class="max-w-7xl mx-auto w-full relative z-10 flex flex-col gap-12">
           <div class="text-center">
-            <span class="text-tealAccent font-space text-xs tracking-[0.3em] uppercase block font-semibold mb-3">FEATURED EXPLOITS</span>
-            <h2 class="split-heading font-sora font-extrabold text-3xl md:text-5xl text-white">Interactive Creations</h2>
+            <span class="text-primaryBlue font-space text-xs tracking-[0.3em] uppercase block font-semibold mb-3">CONNECT WITH ME</span>
+            <h2 class="split-heading font-sora font-extrabold text-3xl md:text-5xl text-white">My Links</h2>
+            <p class="text-textDim font-space text-sm mt-4">Connect with me across platforms—just one tap away.</p>
           </div>
 
-          <!-- Featured Project Glass Sandbox Card -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 md:p-12 items-center hover:border-tealAccent/20 hover:shadow-[0_0_35px_rgba(42,245,152,0.05)] transition-all duration-500 group">
-            
-            <!-- Left Side Project Stats -->
-            <div class="lg:col-span-6 flex flex-col gap-6">
-              <span class="text-tealAccent font-space text-[10px] tracking-widest uppercase border border-tealAccent/20 bg-tealAccent/5 px-3 py-1.5 rounded-full w-max">WEB APPLICATION VIBE CODED WITH AI</span>
-              
-              <h3 class="font-sora font-extrabold text-3xl md:text-5xl text-white leading-tight">Bioluminescent Streetlight</h3>
-              
-              <p class="font-geist text-textDim text-sm md:text-base leading-relaxed">
-                A vibe-coded, AI-built interactive experience reimagining how streets could glow. Designed and shipped entirely through AI collaboration with Claude. Zero traditional code written.
-              </p>
-
-              <!-- Category Tag Chips -->
-              <div class="flex flex-wrap gap-2 text-xs font-space font-medium text-white/90">
-                <span class="bg-surface border border-outline rounded-md px-3 py-1">Vibe Coding</span>
-                <span class="bg-surface border border-outline rounded-md px-3 py-1">Claude AI</span>
-                <span class="bg-surface border border-outline rounded-md px-3 py-1">Lovable</span>
-                <span class="bg-surface border border-outline rounded-md px-3 py-1">No-Code</span>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+            <!-- Link 1: GitHub -->
+            <a href="https://github.com/Naitik-xd" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-primaryBlue/30 transition-all duration-300">
+              <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                <i data-lucide="git-branch" class="w-8 h-8 text-white group-hover:text-primaryBlue transition-colors duration-300"></i>
               </div>
+              <span class="font-sora font-bold text-white text-lg group-hover:text-primaryBlue transition-colors duration-300">GitHub</span>
+            </a>
 
-              <!-- Button CTA Launch -->
-              <a href="https://bioluminescent-streetlights.lovable.app" target="_blank" rel="noopener noreferrer" class="magnetic-btn relative px-6 py-3.5 border border-outline bg-tealAccent/10 hover:bg-tealAccent hover:text-black hover:border-tealAccent group rounded-xl font-space text-[11px] uppercase tracking-wider font-bold transition-all duration-300 w-max flex items-center gap-2 mt-4 cursor-pointer">
-                <span>Launch Live Project</span>
-                <i data-lucide="external-link" class="w-4 h-4 stroke-[2.5]"></i>
-              </a>
-            </div>
-
-            <!-- Right Side CSS Particle & Pulse Interactive Visual Frame -->
-            <div class="lg:col-span-6 w-full h-[320px] md:h-[400px] bg-black border border-outline rounded-2xl overflow-hidden flex items-center justify-center relative">
-              <!-- Glowing teal-green core node -->
-              <div class="absolute w-4.5 h-4.5 bg-tealAccent rounded-full shadow-[0_0_35px_15px_#2af598] z-30 animate-pulse"></div>
-              
-              <!-- Double Breathing Overlapping Glow Pulses -->
-              <div class="absolute inset-0 z-10 mix-blend-screen opacity-70 pointer-events-none">
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(42,245,152,0.45)_0%,transparent_60%)] animate-pulse-slow"></div>
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,204,0.3)_0%,transparent_50%)] animate-pulse-faster"></div>
+            <!-- Link 2: LinkedIn -->
+            <a href="https://www.linkedin.com/in/na1t1k" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#0A66C2]/30 transition-all duration-300">
+              <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(10,102,194,0.1)]">
+                <i data-lucide="briefcase" class="w-8 h-8 text-white group-hover:text-[#0A66C2] transition-colors duration-300"></i>
               </div>
-              
-              <!-- Custom drifts inside viewport -->
-              <div class="absolute inset-0 z-20 overflow-hidden" id="street-particles"></div>
-            </div>
+              <span class="font-sora font-bold text-white text-lg group-hover:text-[#0A66C2] transition-colors duration-300">LinkedIn</span>
+            </a>
 
+            <!-- Link 3: X (Twitter) -->
+            <a href="https://x.com/NA1T1Kxd" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-white/30 transition-all duration-300">
+              <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                <i data-lucide="message-square" class="w-8 h-8 text-white group-hover:text-white/80 transition-colors duration-300"></i>
+              </div>
+              <span class="font-sora font-bold text-white text-lg transition-colors duration-300">X (Twitter)</span>
+            </a>
+
+            <!-- Link 4: Google Skills -->
+            <a href="https://www.skills.google/public_profiles/38b0b619-88ee-4eea-845e-97512f415e2e" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#EA4335]/30 transition-all duration-300">
+              <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(234,67,53,0.1)]">
+                <i data-lucide="award" class="w-8 h-8 text-white group-hover:text-[#EA4335] transition-colors duration-300"></i>
+              </div>
+              <span class="font-sora font-bold text-white text-lg text-center group-hover:text-[#EA4335] transition-colors duration-300">Google Skills</span>
+            </a>
+
+            <!-- Link 5: Google Developer -->
+            <a href="https://g.dev/na1t1k" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#4285F4]/30 transition-all duration-300">
+              <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(66,133,244,0.1)]">
+                <i data-lucide="code" class="w-8 h-8 text-white group-hover:text-[#4285F4] transition-colors duration-300"></i>
+              </div>
+              <span class="font-sora font-bold text-white text-lg text-center group-hover:text-[#4285F4] transition-colors duration-300">Google Developer</span>
+            </a>
+
+            <!-- Link 6: Microsoft Learn -->
+            <a href="https://learn.microsoft.com/en-us/users/naitikagarwal-9821/" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#00A4EF]/30 transition-all duration-300">
+              <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(0,164,239,0.1)]">
+                <i data-lucide="book-open" class="w-8 h-8 text-white group-hover:text-[#00A4EF] transition-colors duration-300"></i>
+              </div>
+              <span class="font-sora font-bold text-white text-lg text-center group-hover:text-[#00A4EF] transition-colors duration-300">Microsoft Learn</span>
+            </a>
           </div>
         </div>
       </section>
@@ -737,7 +732,7 @@
       </div>
 
       <!-- 5. PHOTOGRAPHY SECTION -->
-      <section id="photography" data-title="Lens" class="photography-section relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-background overflow-hidden">
+      <section id="photography" data-title="Lens" class="photography-section relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-transparent overflow-hidden">
         <div class="max-w-7xl mx-auto w-full flex flex-col gap-12">
           
           <div class="text-center md:text-left">
@@ -748,7 +743,7 @@
           <!-- Featured Photography Display Box -->
           <div class="photo-container relative w-full h-[600px] overflow-hidden rounded-2xl border border-outline group select-none">
             <!-- Blur Camera symbol overlay on hover -->
-            <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-20 pointer-events-none">
+            <div class="absolute inset-0 bg-transparent/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-20 pointer-events-none">
               <div class="bg-surface/80 border border-outline p-5 rounded-full shadow-[0_0_30px_rgba(245,166,35,0.35)] transform scale-75 group-hover:scale-100 transition-transform duration-500">
                 <i data-lucide="camera" class="w-10 h-10 text-white animate-pulse"></i>
               </div>
@@ -807,7 +802,7 @@
       </div>
 
       <!-- 6. HACKATHONS SECTION -->
-      <section id="hackathons" data-title="Arena" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-bgMedium overflow-hidden">
+      <section id="hackathons" data-title="Arena" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-transparent overflow-hidden">
         <div class="max-w-7xl mx-auto w-full flex flex-col gap-16">
           
           <div class="text-center">
@@ -880,7 +875,7 @@
       </div>
 
       <!-- 7. PROOF OF WORK SECTION -->
-      <section id="proof" data-title="Proof" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-background overflow-hidden">
+      <section id="proof" data-title="Proof" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-transparent overflow-hidden">
         <div class="max-w-7xl mx-auto w-full flex flex-col gap-12">
           
           <div class="text-center">
@@ -897,13 +892,13 @@
             <!-- Vendor Card 1 (Google) -->
             <div class="tilt-card relative bg-surface/35 border border-outline rounded-3xl p-8 md:p-10 flex gap-6 md:gap-8 items-center overflow-hidden hover:border-primaryBlue/20 transition-all duration-300">
               <!-- Inline multicolor Google circles style -->
-              <div class="flex-shrink-0 p-5 bg-black/40 rounded-2xl border border-outline">
+              <div class="flex-shrink-0 p-5 bg-transparent/40 rounded-2xl border border-outline">
                 <i data-lucide="cloud" class="w-10 h-10 text-primaryBlue"></i>
               </div>
 
               <div class="flex flex-col gap-1.5 flex-1">
                 <span class="font-space text-[10px] text-textDim tracking-widest uppercase">Google Cloud Skills Boost</span>
-                <span class="counter-num text-4xl md:text-5xl font-sora font-extrabold text-white" data-target="25" data-format="plus">0+</span>
+                <span class="counter-num text-4xl md:text-5xl font-sora font-extrabold text-white" data-target="97" data-format="plus">0+</span>
                 <span class="font-geist text-xs text-textDim leading-relaxed">AI Fundamentals, Cloud, Generative AI</span>
               </div>
               <div class="absolute inset-0 bg-gradient-to-tr from-[#4285F4]/5 to-transparent pointer-events-none"></div>
@@ -912,7 +907,7 @@
             <!-- Vendor Card 2 (Microsoft) -->
             <div class="tilt-card relative bg-surface/35 border border-outline rounded-3xl p-8 md:p-10 flex gap-6 md:gap-8 items-center overflow-hidden hover:border-gold/20 transition-all duration-300">
               <!-- Inline MS 4 colored squares -->
-              <div class="flex-shrink-0 p-5 bg-black/40 rounded-2xl border border-outline">
+              <div class="flex-shrink-0 p-5 bg-transparent/40 rounded-2xl border border-outline">
                 <i data-lucide="layout-grid" class="w-10 h-10 text-gold"></i>
               </div>
 
@@ -947,7 +942,7 @@
       </div>
 
       <!-- 8. FUTURE SECTION -->
-      <section id="future" data-title="Goal" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-bgMedium overflow-hidden">
+      <section id="future" data-title="Goal" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-transparent overflow-hidden">
         <div class="max-w-5xl mx-auto w-full relative z-10 flex flex-col items-center gap-8 md:gap-11 text-center">
           
           <div>
@@ -971,7 +966,7 @@
       </div>
 
       <!-- 9. FOOTER SECTION -->
-      <footer id="footer" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-background overflow-hidden flex flex-col items-center justify-between gap-16" style="overflow: hidden;">
+      <footer id="footer" class="relative w-full py-24 md:py-36 px-6 md:px-16 lg:px-24 bg-transparent overflow-hidden flex flex-col items-center justify-between gap-16" style="overflow: hidden;">
         <!-- Aurora background blue filter pulse -->
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] bg-gradient-to-t from-primaryDim/20 to-transparent rounded-full blur-[120px] pointer-events-none z-0"></div>
 
@@ -1008,7 +1003,7 @@
     </main>
 
     <!-- 10. MODAL DETAILS SCREEN FOR SKILL CLICKS -->
-    <div id="skill-modal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-[5000] hidden items-center justify-center p-4">
+    <div id="skill-modal" class="fixed inset-0 bg-transparent/70 backdrop-blur-md z-[5000] hidden items-center justify-center p-4">
       <div class="modal-box w-full max-w-2xl bg-[#090b16] border border-outline rounded-3xl p-8 relative shadow-[0_30px_60px_-15px_rgba(0,0,0,0.85)]" style="transform: scale(0.9); opacity: 0; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;">
         <!-- Filled programmatically in JavaScript -->
         <div id="modal-card-content"></div>
@@ -1094,7 +1089,7 @@
       ];
 
       const marqueePhrases = "NAITIK AGARWAL • AI EXPLORER • PROMPT ENGINEER • VIBE CODER • CREATOR • ";
-      const badgeList = ["Google AI Fundamentals", "Azure AI Engineer", "Prompt Engineering", "Google Cloud Skills", "Microsoft Copilot", "Generative AI", "Power Platform", "Machine Learning", "75 plus and Counting 🔥"];
+      const badgeList = ["Google AI Fundamentals", "Azure AI Engineer", "Prompt Engineering", "Google Cloud Skills", "Microsoft Copilot", "Generative AI", "Power Platform", "Machine Learning", "147 plus and Counting 🔥"];
 
       // Compile Marquee elements programmatically on script loading
       const repeatString = (str, count) => Array(count).fill(str).join(' ');
@@ -1679,28 +1674,6 @@
           if (e.key === 'Escape' && !modal.classList.contains('hidden')) forceCloseModal();
         });
 
-        // 5. Build Street Pulse Drifting Particles
-        const streamContainer = document.getElementById('street-particles');
-        if (streamContainer) {
-          for (let i = 0; i < 22; i++) {
-            const node = document.createElement('div');
-            node.className = 'drifting-particle absolute bottom-0 bg-tealAccent/80 shadow-[0_0_10px_#2af598]';
-            node.style.setProperty('--dx', `${Math.random() * 100}%`);
-            node.style.setProperty('--wiggle', `${(Math.random() - 0.5) * 45}px`);
-            node.style.setProperty('--p-size', `${Math.random() * 3 + 2}px`);
-            node.style.setProperty('--op', `${Math.random() * 0.5 + 0.2}`);
-            node.style.setProperty('--dur', `${Math.random() * 3.5 + 3.5}s`);
-            node.style.animationDelay = `${Math.random() * 5}s`;
-            
-            // Set style inline as well for immediate rendering values
-            node.style.width = `var(--p-size)`;
-            node.style.height = `var(--p-size)`;
-            node.style.animationName = 'floatUp';
-            
-            streamContainer.appendChild(node);
-          }
-        }
-
         // 6. Split Headers programmatically inside Viewport
         const headers = document.querySelectorAll('.split-heading');
         headers.forEach(h => {
@@ -2035,97 +2008,6 @@
       });
 
       // ==========================================
-      // THREE.JS CANVAS PARTICLE SYSTEM ENGINE
-      // ==========================================
-      const hCanvas = document.getElementById('hero-canvas');
-      const hScene = new THREE.Scene();
-      const hCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      const hRenderer = new THREE.WebGLRenderer({ canvas: hCanvas, antialias: true, alpha: true });
-      hRenderer.setSize(window.innerWidth, window.innerHeight);
-      hRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-      const particleCount = 2000;
-      const geom = new THREE.BufferGeometry();
-      const posArray = new Float32Array(particleCount * 3);
-      const colArray = new Float32Array(particleCount * 3);
-
-      const colorNodes = [
-        new THREE.Color('#4a9eff'), // Light Blue
-        new THREE.Color('#ffffff'), // Pure White
-        new THREE.Color('#2af598'), // Deep Teal
-        new THREE.Color('#1a6fd4')  // Dark sapphire
-      ];
-
-      for (let i = 0; i < particleCount; i++) {
-        posArray[i * 3] = (Math.random() - 0.5) * 140;
-        posArray[i * 3 + 1] = (Math.random() - 0.5) * 140;
-        posArray[i * 3 + 2] = (Math.random() - 0.5) * 140;
-
-        const selectionColor = colorNodes[Math.floor(Math.random() * colorNodes.length)];
-        colArray[i * 3] = selectionColor.r;
-        colArray[i * 3 + 1] = selectionColor.g;
-        colArray[i * 3 + 2] = selectionColor.b;
-      }
-
-      geom.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-      geom.setAttribute('color', new THREE.BufferAttribute(colArray, 3));
-
-      // Build safe point particles textures
-      const pMat = new THREE.PointsMaterial({
-        size: 0.55,
-        vertexColors: true,
-        transparent: true,
-        opacity: 0.82,
-        sizeAttenuation: true,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending
-      });
-
-      const particleSystem = new THREE.Points(geom, pMat);
-      hScene.add(particleSystem);
-
-      // Make particle blending light-mode safe when loaded
-      if (document.body.classList.contains('light-mode')) {
-        pMat.blending = THREE.NormalBlending;
-        pMat.opacity = 0.45;
-      }
-
-      hCamera.position.z = 55;
-
-      let mxX = 0, mxY = 0;
-      let tgX = 0, tgY = 0;
-
-      window.addEventListener('mousemove', (e) => {
-        mxX = (e.clientX - window.innerWidth / 2) / 100;
-        mxY = (e.clientY - window.innerHeight / 2) / 100;
-      });
-
-      function renderFrame() {
-        requestAnimationFrame(renderFrame);
-        
-        // Auto drifting rotations
-        particleSystem.rotation.y += 0.0006;
-        particleSystem.rotation.x += 0.0002;
-
-        // Apply mouse lerp Parallax
-        tgX += (mxX - tgX) * 0.06;
-        tgY += (mxY - tgY) * 0.06;
-
-        particleSystem.rotation.y += tgX * 0.015;
-        particleSystem.rotation.x += tgY * 0.015;
-
-        hRenderer.render(hScene, hCamera);
-      }
-      renderFrame();
-
-      window.addEventListener('resize', () => {
-        hCamera.aspect = window.innerWidth / window.innerHeight;
-        hCamera.updateProjectionMatrix();
-        hRenderer.setSize(window.innerWidth, window.innerHeight);
-        hRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      });
-
-      // ==========================================
       // TYPEWRITER ANIMATION LOGIC IMPLEMENTATION
       // ==========================================
       const typewriterElement = document.getElementById('typewriter-text');
@@ -2161,47 +2043,6 @@
       }
       activeTypingLoop();
 
-      // ==========================================
-      // FILM GRAIN RENDER FRAME LOGISTICS
-      // ==========================================
-      const grainCanvas = document.getElementById('grain-canvas');
-      const grainCtx = grainCanvas.getContext('2d');
-
-      function resizeGrain() {
-        const w = Math.floor(window.innerWidth / 2);
-        const h = Math.floor(window.innerHeight / 2);
-        // Avoid setting size if they are zero or invalid to prevent issues
-        grainCanvas.width = w > 0 ? w : 1;
-        grainCanvas.height = h > 0 ? h : 1;
-      }
-      resizeGrain();
-      window.addEventListener('resize', resizeGrain);
-
-      function runGrainLoop() {
-        const w = Math.floor(grainCanvas.width);
-        const h = Math.floor(grainCanvas.height);
-        
-        if (w > 0 && h > 0) {
-          try {
-            const imData = grainCtx.createImageData(w, h);
-            const refData = imData.data;
-
-            for (let i = 0; i < refData.length; i += 4) {
-              const val = Math.floor(Math.random() * 255);
-              refData[i] = val;
-              refData[i + 1] = val;
-              refData[i + 2] = val;
-              refData[i + 3] = 12; // transparent noise pixels
-            }
-
-            grainCtx.putImageData(imData, 0, 0);
-          } catch (e) {
-            console.warn("Grain canvas render skipped:", e);
-          }
-        }
-        requestAnimationFrame(runGrainLoop);
-      }
-      runGrainLoop();
 
       // ==========================================
       // CUSTOM LERPED SMOOTH WALKING CURSOR
@@ -2270,116 +2111,6 @@
         }
       }, 2000);
 
-    </script>
-
-    <!-- Particles.js Script and Config -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-      particlesJS("particles-js", {
-        "particles": {
-          "number": {
-            "value": 80,
-            "density": {
-              "enable": true,
-              "value_area": 800
-            }
-          },
-          "color": {
-            "value": "#4a9eff"
-          },
-          "shape": {
-            "type": "circle",
-            "stroke": {
-              "width": 0,
-              "color": "#000000"
-            },
-            "polygon": {
-              "nb_sides": 5
-            }
-          },
-          "opacity": {
-            "value": 0.5,
-            "random": false,
-            "anim": {
-              "enable": false,
-              "speed": 1,
-              "opacity_min": 0.1,
-              "sync": false
-            }
-          },
-          "size": {
-            "value": 3,
-            "random": true,
-            "anim": {
-              "enable": false,
-              "speed": 40,
-              "size_min": 0.1,
-              "sync": false
-            }
-          },
-          "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#1a6fd4",
-            "opacity": 0.4,
-            "width": 1
-          },
-          "move": {
-            "enable": true,
-            "speed": 2,
-            "direction": "none",
-            "random": false,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false,
-            "attract": {
-              "enable": false,
-              "rotateX": 600,
-              "rotateY": 1200
-            }
-          }
-        },
-        "interactivity": {
-          "detect_on": "window",
-          "events": {
-            "onhover": {
-              "enable": true,
-              "mode": "grab"
-            },
-            "onclick": {
-              "enable": true,
-              "mode": "push"
-            },
-            "resize": true
-          },
-          "modes": {
-            "grab": {
-              "distance": 140,
-              "line_linked": {
-                "opacity": 1
-              }
-            },
-            "bubble": {
-              "distance": 400,
-              "size": 40,
-              "duration": 2,
-              "opacity": 8,
-              "speed": 3
-            },
-            "repulse": {
-              "distance": 200,
-              "duration": 0.4
-            },
-            "push": {
-              "particles_nb": 4
-            },
-            "remove": {
-              "particles_nb": 2
-            }
-          }
-        },
-        "retina_detect": true
-      });
     </script>
     <!-- ── CHAT WIDGET ── -->
     <style>
