@@ -771,7 +771,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-[#07091a] via-[#07091a]/40 to-transparent z-10 pointer-events-none"></div>
 
             <img 
-              src="https://i.ibb.co/yFfgzbsP/sky-tower-1.jpg"
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000"
               alt="Sky Tower — MDI Gurugram Photography Competition"
               style="width:100%;height:600px;object-fit:cover;
               object-position:center top;display:block;
@@ -2519,6 +2519,8 @@
         msgDiv.className = `chat-msg ${type}`;
         if (type === 'bot' && window.marked) {
           msgDiv.innerHTML = marked.parse(text);
+          const links = msgDiv.querySelectorAll('a');
+          links.forEach(link => link.setAttribute('target', '_blank'));
         } else {
           msgDiv.textContent = text;
         }

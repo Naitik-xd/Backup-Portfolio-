@@ -35,6 +35,7 @@ Social Links:
 - X (Twitter): https://x.com/NA1T1Kxd
 - Google Skills Profile: https://www.skills.google/public_profiles/38b0b619-88ee-4eea-845e-97512f415e2e
 - Google Developer Profile: https://g.dev/na1t1k
+- Microsoft Learn: https://learn.microsoft.com/en-us/users/naitikagarwal-9821/
 Rules: Keep answers concise. Use bullet points for lists instead of a single boring paragraph. Never make up information. End contact answers with his email or provide relevant social links.`;
 
     const apiKey = process.env.GAPI_KEY || process.env.GEMINI_API_KEY;
