@@ -1236,8 +1236,6 @@ window.sendSuggested = sendSuggested;
 window.sendChatMessage = sendChatMessage;
 
 function attachEvents() {
-    if (window._chatEventsAttached) return;
-    window._chatEventsAttached = true;
     const bubble = document.getElementById('chat-widget-bubble');
     if (bubble) bubble.addEventListener('click', toggleChat);
 
