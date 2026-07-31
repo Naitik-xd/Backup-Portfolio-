@@ -20,6 +20,7 @@ async function startServer() {
             "https://cdnjs.cloudflare.com",
             "https://cdn.jsdelivr.net"
           ],
+          objectSrc: ["'none'"],
           styleSrc: [
             "'self'",
             "'unsafe-inline'",

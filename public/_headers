@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://i.ibb.co https://raw.githubusercontent.com *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' ws: https://generativelanguage.googleapis.com https://vitals.vercel-insights.com https://raw.githubusercontent.com *; frame-ancestors *;
+  Content-Security-Policy: default-src 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://i.ibb.co https://raw.githubusercontent.com *; font-src 'self' https://fonts.gstatic.com; connect-src 'self' ws: https://generativelanguage.googleapis.com https://vitals.vercel-insights.com https://raw.githubusercontent.com *; frame-ancestors *;
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Cross-Origin-Resource-Policy: same-origin
