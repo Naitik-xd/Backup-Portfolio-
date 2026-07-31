@@ -1235,35 +1235,6 @@ window.handleEnter = handleEnter;
 window.sendSuggested = sendSuggested;
 window.sendChatMessage = sendChatMessage;
 
-document.addEventListener('DOMContentLoaded', () => {
-    const bubble = document.getElementById('chat-widget-bubble');
-    if (bubble) bubble.addEventListener('click', toggleChat);
-
-    const closeBtn = document.querySelector('.chat-close');
-    if (closeBtn) closeBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleChat();
-    });
-
-    const chip1 = document.getElementById('chip-1');
-    if (chip1) chip1.addEventListener('click', () => sendSuggested('What can Naitik do?'));
-
-    const chip2 = document.getElementById('chip-2');
-    if (chip2) chip2.addEventListener('click', () => sendSuggested('His projects 🚀'));
-
-    const chip3 = document.getElementById('chip-3');
-    if (chip3) chip3.addEventListener('click', () => sendSuggested('Top achievements'));
-
-    const chip4 = document.getElementById('chip-4');
-    if (chip4) chip4.addEventListener('click', () => sendSuggested('Contact him'));
-
-    const input = document.getElementById('chat-input');
-    if (input) input.addEventListener('keypress', handleEnter);
-
-    const sendBtn = document.getElementById('chat-send');
-    if (sendBtn) sendBtn.addEventListener('click', sendChatMessage);
-});
-
 function attachEvents() {
     const bubble = document.getElementById('chat-widget-bubble');
     if (bubble) bubble.addEventListener('click', toggleChat);
