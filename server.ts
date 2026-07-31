@@ -6,20 +6,15 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
+  const isDev = process.env.NODE_ENV !== "production";
+
   // Security Headers
   app.use(
     helmet({
       contentSecurityPolicy: {
         directives: {
           defaultSrc: ["'self'"],
-          scriptSrc: [
-            "'self'",
-            "'unsafe-inline'",
-            "'unsafe-eval'",
-            "https://unpkg.com",
-            "https://cdnjs.cloudflare.com",
-            "https://cdn.jsdelivr.net"
-          ],
+          scriptSrc: ["'self'"],
           objectSrc: ["'none'"],
           styleSrc: [
             "'self'",
@@ -31,13 +26,15 @@ async function startServer() {
           connectSrc: [
             "'self'",
             "ws:", // For Vite HMR
-            "https://generativelanguage.googleapis.com", "https://vitals.vercel-insights.com",
-            "https://raw.githubusercontent.com", "*"
+            "https://generativelanguage.googleapis.com", 
+            "https://vitals.vercel-insights.com",
+            "https://raw.githubusercontent.com", 
+            "*"
           ],
           frameAncestors: ["*"],
         },
       },
-      crossOriginResourcePolicy: { policy: "same-origin" },
+      crossOriginResourcePolicy: { policy: "cross-origin" },
       referrerPolicy: { policy: "strict-origin-when-cross-origin" },
       xContentTypeOptions: true,
       hsts: { maxAge: 31536000, includeSubDomains: true, preload: true },
