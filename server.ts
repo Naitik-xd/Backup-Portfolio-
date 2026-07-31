@@ -36,10 +36,9 @@ async function startServer() {
           frameAncestors: ["*"],
         },
       },
-      crossOriginResourcePolicy: { policy: "cross-origin" },
+      crossOriginResourcePolicy: { policy: "same-origin" },
       referrerPolicy: { policy: "strict-origin-when-cross-origin" },
       xContentTypeOptions: true,
-      xFrameOptions: false,
       hsts: { maxAge: 31536000, includeSubDomains: true, preload: true },
     })
   );

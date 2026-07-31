@@ -68,7 +68,7 @@ export default function CanvasBackground() {
         <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
         <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#10b981" />
         <FloatingShapes />
-        <Environment preset="city" />
+        <Environment files="/potsdamer_platz_1k.hdr" />
       </Canvas>
     </div>
   );
