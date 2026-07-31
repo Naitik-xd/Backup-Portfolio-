@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-primaryBlue: var(--primary-blue);
+  --color-primaryDim: var(--primary-dim);
+  --color-gold: var(--gold);
+  --color-textDim: var(--text-dim);
+  --color-tealAccent: var(--teal-accent);
+  --color-outline: var(--outline);
+
+  --font-sora: Sora, sans-serif;
+  --font-space: "Space Grotesk", sans-serif;
+}

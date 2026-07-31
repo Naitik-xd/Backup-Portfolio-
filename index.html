@@ -6,6 +6,8 @@
     <meta name="robots" content="noindex, nofollow" />
     <title>Naitik's Portfolio</title>
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Sora:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Lucide Icons CDN -->
     <script defer src="https://unpkg.com/lucide@latest"></script>
@@ -13,30 +15,7 @@
     <!-- GSAP CDN -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              background: 'var(--background)',
-              surface: 'var(--surface)',
-              primaryBlue: 'var(--primary-blue)',
-              primaryDim: 'var(--primary-dim)',
-              gold: 'var(--gold)',
-              textDim: 'var(--text-dim)',
-              tealAccent: 'var(--teal-accent)',
-              outline: 'var(--outline)'
-            },
-            fontFamily: {
-              sora: ['Sora', 'sans-serif'],
-              space: ['Space Grotesk', 'sans-serif']
-            }
-          }
-        }
-      }
-    </script>
     <style>
       :root {
         --background: #07091a;
@@ -44,7 +23,7 @@
         --primary-blue: #4a9eff;
         --primary-dim: #1a6fd4;
         --gold: #f5a623;
-        --text-dim: #6b7494;
+        --text-dim: #94a3b8;
         --teal-accent: #2af598;
         --outline: rgba(255, 255, 255, 0.08);
         --text-white: #ffffff;
@@ -126,6 +105,10 @@
       body.light-mode .text-textDim {
         color: var(--text-dim) !important;
       }
+      
+      body.light-mode .bg-surface {
+        background-color: var(--surface) !important;
+      }
       body.light-mode .bg-surface\/30 {
         background-color: rgba(255, 255, 255, 0.6) !important;
       }
@@ -164,7 +147,7 @@
         background-color: var(--background) !important;
         border-top: 1px solid var(--outline) !important;
         border-bottom: 1px solid var(--outline) !important;
-        opacity: 0.35;
+        opacity: 0.7;
       }
       body.light-mode .marquee-divider .text-white {
         color: var(--text-dim) !important;
@@ -459,7 +442,7 @@
         border-top: 1px solid rgba(255,255,255,0.03);
         border-bottom: 1px solid rgba(255,255,255,0.03);
         padding: 0.85rem 0;
-        opacity: 0.4;
+        opacity: 0.7;
         user-select: none;
         pointer-events: none;
       }
@@ -783,15 +766,15 @@
             <!-- Info block sitting inside photography bottom-left overlay -->
             <div class="absolute bottom-6 left-6 md:bottom-12 md:left-12 z-20 max-w-xl flex flex-col gap-4">
               <div class="flex flex-col gap-1">
-                <span class="text-textDim font-space text-[10px] md:text-xs tracking-wider uppercase font-semibold">MDI GURUGRAM PHOTOGRAPHY COMPETITION SELECTED ENTRY</span>
-                <h3 class="font-sora font-bold text-white text-2xl md:text-4xl">Sky Tower</h3>
+                <span class="text-[#ffffff]/70 font-space text-[10px] md:text-xs tracking-wider uppercase font-semibold">MDI GURUGRAM PHOTOGRAPHY COMPETITION SELECTED ENTRY</span>
+                <h3 class="font-sora font-bold text-[#ffffff] text-2xl md:text-4xl">Sky Tower</h3>
               </div>
 
               <!-- Top percent and Rank values -->
               <div class="flex items-center gap-6 mt-1">
                 <div class="flex flex-col">
                   <span class="font-sora text-2xl md:text-3xl text-gold font-extrabold shadow-text-[0_0_15px_#f5a623]">4th / 135</span>
-                  <span class="font-space text-[9px] uppercase tracking-wider text-textDim mt-0.5">COMPETITION RANKING</span>
+                  <span class="font-space text-[9px] uppercase tracking-wider text-[#ffffff]/70 mt-0.5">COMPETITION RANKING</span>
                 </div>
                 
                 <!-- Animating progress scroll tracking bar -->
