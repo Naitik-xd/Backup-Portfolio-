@@ -8,13 +8,13 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Sora:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/lucide@latest"></script>
     <!-- Three.js CDN -->
     <!-- GSAP CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -525,12 +525,12 @@
       <!-- Right Toggle Buttons -->
       <div class="flex items-center gap-3">
         <!-- Sound Toggle -->
-        <button id="sound-toggle" class="flex items-center gap-2 px-3 py-1.5 border border-outline bg-surface/40 hover:bg-white/10 text-white rounded-full text-[10px] font-space uppercase tracking-widest cursor-pointer transition-all duration-300">
+        <button id="sound-toggle" aria-label="Toggle Sound" class="flex items-center gap-2 px-3 py-1.5 border border-outline bg-surface/40 hover:bg-white/10 text-white rounded-full text-[10px] font-space uppercase tracking-widest cursor-pointer transition-all duration-300">
           <i data-lucide="music-4" class="w-3.5 h-3.5 animate-pulse"></i>
           <span id="sound-text">Sound: Off</span>
         </button>
         <!-- Theme Toggle -->
-        <button id="theme-toggle" class="flex items-center justify-center p-2 border border-outline bg-surface/40 hover:bg-white/10 text-white rounded-full cursor-pointer transition-all duration-300" title="Toggle Theme" style="width: 32px; height: 32px;">
+        <button id="theme-toggle" aria-label="Toggle Theme" class="flex items-center justify-center p-2 border border-outline bg-surface/40 hover:bg-white/10 text-white rounded-full cursor-pointer transition-all duration-300" title="Toggle Theme" style="width: 32px; height: 32px;">
           <i data-lucide="sun" class="w-4 h-4 hidden dark-icon"></i>
           <i data-lucide="moon" class="w-4 h-4 light-icon"></i>
         </button>
@@ -694,7 +694,7 @@
 
           <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             <!-- Link 1: GitHub -->
-            <a href="https://github.com/Naitik-xd" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-primaryBlue/30 transition-all duration-300">
+            <a href="https://github.com/Naitik-xd" aria-label="GitHub" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-primaryBlue/30 transition-all duration-300">
               <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
                 <i data-lucide="git-branch" class="w-8 h-8 text-white group-hover:text-primaryBlue transition-colors duration-300"></i>
               </div>
@@ -702,7 +702,7 @@
             </a>
 
             <!-- Link 2: LinkedIn -->
-            <a href="https://www.linkedin.com/in/na1t1k" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#0A66C2]/30 transition-all duration-300">
+            <a href="https://www.linkedin.com/in/na1t1k" aria-label="LinkedIn" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#0A66C2]/30 transition-all duration-300">
               <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(10,102,194,0.1)]">
                 <i data-lucide="briefcase" class="w-8 h-8 text-white group-hover:text-[#0A66C2] transition-colors duration-300"></i>
               </div>
@@ -710,7 +710,7 @@
             </a>
 
             <!-- Link 3: X (Twitter) -->
-            <a href="https://x.com/NA1T1Kxd" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-white/30 transition-all duration-300">
+            <a href="https://x.com/NA1T1Kxd" aria-label="X Twitter" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-white/30 transition-all duration-300">
               <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
                 <i data-lucide="message-square" class="w-8 h-8 text-white group-hover:text-white/80 transition-colors duration-300"></i>
               </div>
@@ -718,7 +718,7 @@
             </a>
 
             <!-- Link 4: Google Skills -->
-            <a href="https://www.skills.google/public_profiles/38b0b619-88ee-4eea-845e-97512f415e2e" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#EA4335]/30 transition-all duration-300">
+            <a href="https://www.skills.google/public_profiles/38b0b619-88ee-4eea-845e-97512f415e2e" aria-label="Google Skills" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#EA4335]/30 transition-all duration-300">
               <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(234,67,53,0.1)]">
                 <i data-lucide="award" class="w-8 h-8 text-white group-hover:text-[#EA4335] transition-colors duration-300"></i>
               </div>
@@ -726,7 +726,7 @@
             </a>
 
             <!-- Link 5: Google Developer -->
-            <a href="https://g.dev/na1t1k" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#4285F4]/30 transition-all duration-300">
+            <a href="https://g.dev/na1t1k" aria-label="Google Developer" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#4285F4]/30 transition-all duration-300">
               <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(66,133,244,0.1)]">
                 <i data-lucide="code" class="w-8 h-8 text-white group-hover:text-[#4285F4] transition-colors duration-300"></i>
               </div>
@@ -734,7 +734,7 @@
             </a>
 
             <!-- Link 6: Microsoft Learn -->
-            <a href="https://learn.microsoft.com/en-us/users/naitikagarwal-9821/" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#00A4EF]/30 transition-all duration-300">
+            <a href="https://learn.microsoft.com/en-us/users/naitikagarwal-9821/" aria-label="Microsoft Learn" target="_blank" class="tilt-card group relative bg-surface/30 backdrop-blur-md border border-outline rounded-3xl p-8 flex flex-col items-center gap-4 hover:border-[#00A4EF]/30 transition-all duration-300">
               <div class="w-16 h-16 rounded-2xl bg-surface border border-outline flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(0,164,239,0.1)]">
                 <i data-lucide="book-open" class="w-8 h-8 text-white group-hover:text-[#00A4EF] transition-colors duration-300"></i>
               </div>
@@ -770,7 +770,7 @@
             <!-- Gradient bottom fade filter -->
             <div class="absolute inset-0 bg-gradient-to-t from-[#07091a] via-[#07091a]/40 to-transparent z-10 pointer-events-none"></div>
 
-            <img 
+            <img loading="lazy" 
               src="https://i.ibb.co/yFfgzbsP/sky-tower-1.jpg"
               alt="Sky Tower — MDI Gurugram Photography Competition"
               style="width:100%;height:600px;object-fit:cover;
@@ -1588,7 +1588,7 @@
           gridCard.innerHTML = `
             <div class="flex items-center gap-4">
               ${tool.logo}
-              <h4 class="font-sora font-extrabold text-white text-base tracking-tight">${tool.name}</h4>
+              <h3 class="font-sora font-extrabold text-white text-base tracking-tight">${tool.name}</h3>
             </div>
             <p class="tool-desc text-textDim text-xs font-geist leading-relaxed">${tool.desc}</p>
           `;
@@ -1606,6 +1606,7 @@
           const dotBtn = document.createElement('button');
           dotBtn.className = 'w-2.5 h-2.5 rounded-full bg-textDim/40 hover:bg-primaryBlue hover:scale-125 transition-all duration-300 relative group cursor-pointer';
           dotBtn.setAttribute('data-target-id', sec.id);
+          dotBtn.setAttribute('aria-label', 'Scroll to ' + sec.id);
 
           const tipText = document.createElement('span');
           tipText.className = 'absolute right-6 top-1/2 -translate-y-1/2 bg-surface text-center border border-outline text-[9px] text-white py-1 px-3.5 rounded opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300 font-space whitespace-nowrap uppercase tracking-wider scale-95 origin-right group-hover:scale-100 transition-transform duration-300';
@@ -1673,7 +1674,7 @@
                       <p class="text-[10px] font-space tracking-wider text-gold/95 uppercase mt-0.5">${data.tagline}</p>
                     </div>
                   </div>
-                  <button id="modal-close-trigger" class="text-textDim hover:text-white hover:bg-white/10 p-2 rounded-full transition-colors cursor-pointer group">
+                  <button id="modal-close-trigger" aria-label="Close Modal" class="text-textDim hover:text-white hover:bg-white/10 p-2 rounded-full transition-colors cursor-pointer group">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:rotate-90 transition-transform duration-300"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                   </button>
                 </div>
@@ -2431,7 +2432,7 @@
       #chat-send svg { color: white; width: 20px; height: 20px; }
     </style>
 
-    <div id="chat-widget-bubble" onclick="toggleChat()">
+    <div id="chat-widget-bubble" role="button" aria-label="Open Chat" onclick="toggleChat()">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
       <div id="chat-notification-dot"></div>
     </div>
@@ -2443,7 +2444,7 @@
           <div class="chat-title">Ask Naitik</div>
           <div class="chat-status"><div class="chat-status-dot"></div>Online — Powered by Gemini</div>
         </div>
-        <div class="chat-close" onclick="toggleChat()">
+        <div class="chat-close" role="button" aria-label="Close Chat" onclick="toggleChat()">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </div>
       </div>
@@ -2465,7 +2466,7 @@
 
       <div id="chat-input-area">
         <input type="text" id="chat-input" placeholder="Ask me about Naitik..." onkeypress="handleEnter(event)">
-        <button id="chat-send" onclick="sendChatMessage()">
+        <button id="chat-send" aria-label="Send Chat Message" onclick="sendChatMessage()">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
         </button>
       </div>
