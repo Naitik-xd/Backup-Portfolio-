@@ -1165,7 +1165,18 @@
         }
         const msgContainer = document.getElementById('chat-messages');
         msgContainer.appendChild(msgDiv);
-        msgContainer.scrollTop = msgContainer.scrollHeight;
+        
+        if (type === 'user') {
+          msgContainer.scrollTo({ top: msgContainer.scrollHeight, behavior: 'smooth' });
+        } else {
+          // If the bot response is taller than the chat window, scroll to the start of the response
+          if (msgDiv.clientHeight > msgContainer.clientHeight) {
+            msgDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            // Otherwise just scroll smoothly to the bottom to show the whole message
+            msgContainer.scrollTo({ top: msgContainer.scrollHeight, behavior: 'smooth' });
+          }
+        }
       }
 
       async function sendChatMessage() {
@@ -1188,7 +1199,7 @@
         
         const msgContainer = document.getElementById('chat-messages');
         msgContainer.appendChild(typing); // move it to bottom
-        msgContainer.scrollTop = msgContainer.scrollHeight;
+        msgContainer.scrollTo({ top: msgContainer.scrollHeight, behavior: 'smooth' });
 
         try {
           const res = await fetch('/api/ask-naitik', {
