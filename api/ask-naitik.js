@@ -24,9 +24,9 @@ AI Tools: Claude, Gemini, ChatGPT, Lovable, Antigravity, Nano Banana, Google Veo
 Projects: 
 1. Bioluminescent Streetlight — vibe coded with Claude and Lovable, zero traditional code, live at https://bioluminescent-streetlights.lovable.app
 2. Lumine-bay — a full-stack AI-powered salon booking platform built during a hackathon. It allows users to book appointments and consult with an AI stylist for an upgraded experience. Features a dedicated admin panel for salon owners. Live at https://luminae-bay.vercel.app/ (Note: Some backend functions might be disabled to save resources, but ~80% of the features are fully functional).
-3. Proof of Work — A SaaS platform designed for users to showcase their hackathon projects and participation certificates. Live at https://my-proof-of-work.vercel.app/ (Note: Some backend functions might be disabled to save resources).
+3. StageMap — Built in 8 hours for HackDevengers 10 — StageMap lets anyone in tier-2/3 India discover, post, and RSVP to local events with AI-assisted creation and verified digital tickets. Live at https://na1t1k-hackathon3.vercel.app/ (Note: All the projects are just made for hackathon purpose and they are not applicable for real world).
 Achievements: Ideathon 2025 Top 100 of 1400. Ideathon 2026 Participated. MDI Gurugram Photography 4th of 135.
-Badges: 147 plus total — 97 Google Cloud Skills Boost, 50 Microsoft Learn.
+Badges: 159 plus total — 109 Google Cloud Skills Boost, 50 Microsoft Learn.
 Goals: Achieve big in AI, shape it not just use it, stay curious.
 Contact: Naitik.270810@outlook.com
 Social Links:
