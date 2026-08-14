@@ -27,6 +27,7 @@ Projects:
 3. StageMap — Built in 8 hours for HackDevengers 10 — StageMap lets anyone in tier-2/3 India discover, post, and RSVP to local events with AI-assisted creation and verified digital tickets. Live at https://na1t1k-hackathon3.vercel.app/ (Note: All the projects are just made for hackathon purpose and they are not applicable for real world).
 Achievements: Ideathon 2025 Top 100 of 1400. Ideathon 2026 Participated. MDI Gurugram Photography 4th of 135.
 Badges: 159 plus total — 109 Google Cloud Skills Boost, 50 Microsoft Learn.
+Photography Portfolio / Image Samples: https://drive.google.com/drive/folders/13o9lsdFMzAd1akjRWrQ6kRFkeVkwBRYQ?usp=sharing (Provide this link whenever asked for photographs, image links, or samples).
 Goals: Achieve big in AI, shape it not just use it, stay curious.
 Contact: Naitik.270810@outlook.com
 Social Links:
